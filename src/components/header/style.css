@@ -1,0 +1,102 @@
+/* style.css */
+
+/* AppBar */
+.appBar {
+    background-color: #000000;
+}
+
+/* Logo */
+.logo {
+    display: none;
+    margin-right: 4px;
+    width: 8%;
+    height: 8%;
+}
+
+/* Menu */
+.menuBox {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.menuIcon {
+    margin-right: 16px;
+}
+
+.menu {
+    display: block !important;
+}
+
+/* AdbIcon */
+.adbIcon {
+    display: flex;
+    margin-right: 8px;
+}
+
+/* LogoText */
+.logoText {
+    margin-right: 8px;
+    display: flex;
+    flex-grow: 1;
+    font-family: monospace;
+    font-weight: 700;
+    letter-spacing: .3rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Pages */
+.pagesBox {
+    flex-grow: 1;
+    display: none;
+}
+
+.pageButton {
+    margin-top: 16px;
+    color: white;
+    display: block;
+}
+
+/* Search */
+.search {
+    position: relative;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-left: 0;
+    margin-right: 16px;
+    width: 40%;
+}
+
+.search:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.searchIcon {
+    padding: 8px;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* InputBase */
+.inputBase {
+    color: inherit;
+    width: 100%;
+}
+
+/* Settings */
+.settingsBox {
+    flex-grow: 0;
+}
+
+.avatarButton {
+    padding: 0;
+}
+
+.userMenu {
+    margin-top: 45px;
+}

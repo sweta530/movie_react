@@ -1,0 +1,44 @@
+.custom-container{
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0; 
+    margin: 0;
+    z-index: 1; 
+    position: absolute;
+  }
+
+  .background-image {
+    z-index: -1;
+    position: absolute;
+    height: 70vh;
+    width: 100%;
+  }
+
+  .custom-container .search-container {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    margin-top: 15px;
+  }
+  
+  .custom-container .search-container .MuiTextField-root {
+    background-color: white;
+    border-radius: 15px 0 0 15px ;
+    flex: 1;
+    width: 200px;
+    margin: 0;
+  }
+  
+  .custom-container .search-container .MuiButton-contained {
+    background-color: #f00b51;
+    padding: 16px;
+    border-radius: 0 15px 15px 0;
+  }
