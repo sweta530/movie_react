@@ -3,17 +3,47 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './style.css';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useFetch from '../../../hooks/useFetch';
+import { useSelector } from "react-redux";
+import LoadImg from '../../../components/lazyLoadImage/LoadImg';
 
 export default function HomeBanner() {
+  const [searchText, setSearchText] = useState("")
+  const [backgroundImg, setBackgroundImg] = useState("")
+  const navigate = useNavigate()
+  const { url } = useSelector((state) => state.home)
+  const { data, loading } = useFetch("/movie/upcoming")
+
+  useEffect(() => {
+    if (data !== null) {
+      const randomNum = Math.floor(Math.random() * 20)
+      const backdropImg = data.results[randomNum]?.backdrop_path
+      const background = url.backdrop + backdropImg
+      setBackgroundImg(background)
+    }
+  }, [data])
+
+  function searchQueryHandler(event) {
+    if (event.key === 'Enter') {
+      searchHandler()
+    }
+  }
+  function searchHandler() {
+    if (searchText !== "") {
+      navigate(`/search/${searchText}`)
+    }
+  }
+
   return (
     <>
-      <div>
-        <img src='https://prd-rteditorial.s3.us-west-2.amazonaws.com/wp-content/uploads/2021/09/10111929/Lucifer_S6-keyart-600x314.jpg'
-          alt='Movie banner'
-          className='background-image' />
+      <div className='home-banner'>
+        {!loading && (
+          <LoadImg src={backgroundImg} className="background-image" />
+        )}
         <div
-          className="custom-container"
-        >
+          className="custom-container">
           <Typography variant="h2" gutterBottom>
             Welcome
           </Typography>
@@ -25,9 +55,13 @@ export default function HomeBanner() {
               variant="outlined"
               placeholder="Search movies, TV shows, people..."
               margin="normal"
+              onChange={(e) => setSearchText(e.target.value)}
+              value={searchText}
+              onKeyUp={(e) => searchQueryHandler(e)}
             />
             <Button
               variant="contained"
+              onChange={searchHandler}
             >
               Search
             </Button>
