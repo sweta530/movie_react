@@ -1,5 +1,5 @@
 .home-banner {
-  height: 65vh;
+  height: 500px;
   width: 100%;
   position: relative;
 }
@@ -41,16 +41,22 @@
   height: 50px;
 }
 
-.search-container .MuiTextField-root:hover {
-  box-shadow: 0 0 0.625em #f00b51;
-  color: #f00b51;
+.search-container .searchbar:hover {
+  box-shadow: 0 0 1em #f00b51;
 }
 
-.search-container .MuiTextField-root {
+.noBorder {
+  outline: none; /* Remove default focus outline */
+  border: none;  /* Remove border */
+}
+
+.search-container .searchbar {
   background-color: white;
   border-radius: 15px 0 0 15px;
   flex: 1;
   height: 100%;
+  padding: 10px;
+  border: none;
 }
 
 .search-container .MuiButton-contained {
@@ -59,13 +65,11 @@
     border-radius: 0 15px 15px 0;
     height: 100%;
     margin: 0;
-    margin-top: 8px ;
 }
 
 .search-container .MuiButton-contained:hover {
-  box-shadow: 0 0 0.625em #f00b51;
+  box-shadow: 0 0 1em #f00b51;
   background: #f00b51; 
-  /* color: #f00b51; */
 }
 
 .lazy-load-image-background {

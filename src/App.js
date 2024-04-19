@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home/Home';
 import Detail from "./pages/detail/Detail";
@@ -14,6 +11,7 @@ import { fetchDataFromApi } from "./utils/api";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getApiConfig, getGenres } from "./store/homeSlice";
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -49,7 +47,6 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-
     </>
   );
 }

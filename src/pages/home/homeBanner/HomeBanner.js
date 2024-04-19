@@ -1,6 +1,5 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './style.css';
 import { useState, useEffect } from 'react';
@@ -51,14 +50,17 @@ export default function HomeBanner() {
             Millions of movies, TV shows, and people to discover. Explore now.
           </Typography>
           <div className="search-container">
-            <TextField
-              variant="outlined"
+            <input
+              type="text"
               placeholder="Search movies, TV shows, people..."
-              margin="normal"
               onChange={(e) => setSearchText(e.target.value)}
               value={searchText}
               onKeyUp={(e) => searchQueryHandler(e)}
+              className='searchbar'
+              onFocus={(e) => e.target.classList.add('noBorder')}  // Add class when input is focused
+              onBlur={(e) => e.target.classList.remove('noBorder')}
             />
+
             <Button
               variant="contained"
               onChange={searchHandler}
