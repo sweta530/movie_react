@@ -12,14 +12,14 @@ export default function HomeBanner() {
   const [searchText, setSearchText] = useState("")
   const [backgroundImg, setBackgroundImg] = useState("")
   const navigate = useNavigate()
-  const { url } = useSelector((state) => state.home)
+  const { image_url } = useSelector((state) => state.home)
   const { data, loading } = useFetch("/movie/upcoming")
 
   useEffect(() => {
     if (data !== null) {
       const randomNum = Math.floor(Math.random() * 20)
       const backdropImg = data.results[randomNum]?.backdrop_path
-      const background = url.backdrop + backdropImg
+      const background = image_url.backdrop + backdropImg
       setBackgroundImg(background)
     }
   }, [data])

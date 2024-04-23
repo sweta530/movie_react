@@ -14,7 +14,7 @@ import "./style.css";
 
 const Carousel = ({ data, loading, endpoint, title }) => {
     const carouselContainer = useRef();
-    const { url } = useSelector((state) => state.home);
+    const { image_url } = useSelector((state) => state.home);
     const navigate = useNavigate();
 
     const navigation = (dir) => {
@@ -32,14 +32,14 @@ const Carousel = ({ data, loading, endpoint, title }) => {
 
     const skeletonItem = () => (
         <div className="skeletonItem">
-            <div className="posterBlock skeleton skeleton-loader">
+            <div className="posterBlock skeleton ">
                 <Skeleton width={150} height={225} />
             </div>
             <div className="textBlock">
-                <div className="title skeleton skeleton-loader">
+                <div className="title skeleton ">
                     <Skeleton width={100} />
                 </div>
-                <div className="date skeleton skeleton-loader">
+                <div className="date skeleton ">
                     <Skeleton width={80} />
                 </div>
             </div>
@@ -71,7 +71,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                         <div className="carouselItems" ref={carouselContainer}>
                             {data?.map((item) => {
                                 const posterUrl = item.poster_path
-                                    ? url.poster + item.poster_path
+                                    ? image_url.poster + item.poster_path
                                     : PosterFallback;
                                 return (
                                     <div

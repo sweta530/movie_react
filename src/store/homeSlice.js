@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    url: {},
+    image_url: {},
     genres: {},
 }
 
@@ -10,7 +10,7 @@ export const homeSlice = createSlice({
     initialState,
     reducers: {
         getApiConfig: (state, action) => {
-            state.url = action.payload
+            state.image_url = action.payload
         },
         getGenres: (state, action) => {
             state.genres = action.payload

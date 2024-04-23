@@ -3,7 +3,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
@@ -15,6 +14,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import './style.css'
+import { useNavigate } from 'react-router-dom';
 
 const pages = ['Movies', 'TV Shows'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -55,6 +55,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
     width: '100%',
+    margin: '0px 10px',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -68,6 +69,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Header() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const navigate = useNavigate()
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -84,11 +86,6 @@ export default function Header() {
         setAnchorElUser(null);
     };
 
-    const GradientButton = styled(Button)(({ theme }) => ({
-        background: theme.palette.mode === 'light' ? 'linear-gradient(to right, #f00b51, black)' : 'linear-gradient(120deg, #f00b51, black)', // Adjust the gradient colors here
-        '-webkit-background-clip': 'text',
-        '-webkit-text-fill-color': 'transparent',
-    }));
     return (
         <AppBar position="static" sx={{ backgroundColor: '#000000' }}>
             <Container maxWidth="xl">
@@ -107,19 +104,12 @@ export default function Header() {
                     <img src='/images/logo_no_background.svg'
                         alt='Movie-Lover'
                         component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}
-                        height={'40px'}
-
+                        className='logo'
+                        onClick={() => { navigate('/') }}
+                        sx={{ flexGrow: 1 }}
                     />
-                    {/* <Typography
-                        variant="h6"
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}
-                    >
-                        LOGO
-                    </Typography> */}
                     <Box sx={{ flexGrow: 1 }}>
-                        <Search>
+                        <Search >
                             <SearchIconWrapper>
                                 <SearchIcon />
                             </SearchIconWrapper>
