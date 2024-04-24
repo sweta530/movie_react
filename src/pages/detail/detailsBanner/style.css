@@ -106,6 +106,25 @@
     width: 60px;
 }
 
+.content .right .playbtn:hover {
+    color: #f00b51;
+}
+
+.content .right .playbtn:hover svg#play #lineOne {
+    transform: rotate(260deg);
+    stroke: #f00b51;
+}
+
+.content .right .playbtn:hover svg#play #lineTwo {
+    transform: rotate(-450deg);
+    stroke: #f00b51;
+}
+
+.content .right .playbtn:hover svg#play #triangle {
+    fill: #f00b51;
+    stroke: #f00b51;
+}
+
 @media (min-width: 768px) {
     .content .right .playbtn svg {
         width: 80px;
