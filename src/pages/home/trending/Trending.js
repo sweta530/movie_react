@@ -8,11 +8,20 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 function Trending() {
     const [endpoint, setEndpoint] = useState("day");
 
-    const { data, loading } = useFetch(`/trending/movie/${endpoint}`);
+    const { data, loading, error } = useFetch(`/trending/movie/${endpoint}`);
 
     const onTabChange = (tab) => {
         setEndpoint(tab === "Day" ? "day" : "week");
     };
+
+    if (error !== null && loading === false) {
+        return (
+            <ContentWrapper>
+                <span className="carouselTitle">Trending</span>
+                <h2 className="errorMessage">Something went wrong</h2>
+            </ContentWrapper>
+        )
+    }
 
     return (
         <div className="carouselSection">

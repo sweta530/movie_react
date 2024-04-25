@@ -10,11 +10,20 @@ import '../style.css';
 const TopRated = () => {
     const [endpoint, setEndpoint] = useState("movie");
 
-    const { data, loading } = useFetch(`/${endpoint}/top_rated`);
+    const { data, loading, error } = useFetch(`/${endpoint}/top_rated`);
 
     const onTabChange = (tab) => {
         setEndpoint(tab === "Movies" ? "movie" : "tv");
     };
+
+    if (error !== null && loading === false) {
+        return (
+            <ContentWrapper>
+                <span className="carouselTitle">Top Rated</span>
+                <h2 className="errorMessage">Something went wrong</h2>
+            </ContentWrapper>
+        )
+    }
 
     return (
         <div className="carouselSection">

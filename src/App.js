@@ -30,25 +30,32 @@ function App() {
       };
 
       dispatch(getApiConfig(image_url));
-    });
+    }).catch((err) => {
+      console.log(err)
+    })
   };
 
   const fetchGenres = async () => {
-    let promises = [];
-    let endPoints = ["tv", "movie"];
-    let allGenres = {};
+    try {
+      let promises = [];
+      let endPoints = ["tv", "movie"];
+      let allGenres = {};
 
-    endPoints.forEach((url) => {
-      promises.push(fetchDataFromApi(`/genre/${url}/list`));
-    });
+      endPoints.forEach((url) => {
+        promises.push(fetchDataFromApi(`/genre/${url}/list`));
+      });
 
-    const data = await Promise.all(promises);
-    data.map(({ genres }) => {
-      return genres.map((item) => (allGenres[item.id] = item));
-    });
+      const data = await Promise.all(promises);
+      data.map(({ genres }) => {
+        return genres.map((item) => (allGenres[item.id] = item));
+      });
 
-    dispatch(getGenres(allGenres));
+      dispatch(getGenres(allGenres));
+    } catch (error) {
+      console.log("Error fetching genres:", error);
+    }
   };
+
 
   return (
     <>

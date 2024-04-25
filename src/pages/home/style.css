@@ -10,8 +10,15 @@
     margin-bottom: 10px;
 }
 
-.carouselSection .carouselTitle {
+.carouselTitle {
     font-size: 24px;
     color: white;
     font-weight:500;
+}
+
+.errorMessage {
+    font-size: 24px;
+    color: white;
+    font-weight:500;
+    text-align: center;
 }

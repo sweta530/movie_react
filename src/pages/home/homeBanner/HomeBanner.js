@@ -13,12 +13,12 @@ export default function HomeBanner() {
   const [backgroundImg, setBackgroundImg] = useState("")
   const navigate = useNavigate()
   const { image_url } = useSelector((state) => state.home)
-  const { data, loading } = useFetch("/movie/upcoming")
+  const { data, loading, error } = useFetch("/movie/upcoming")
 
   useEffect(() => {
-    if (data !== null) {
+    if (error !== null) {
       const randomNum = Math.floor(Math.random() * 20)
-      const backdropImg = data.results[randomNum]?.backdrop_path
+      const backdropImg = data?.results[randomNum]?.backdrop_path
       const background = image_url.backdrop + backdropImg
       setBackgroundImg(background)
     }
