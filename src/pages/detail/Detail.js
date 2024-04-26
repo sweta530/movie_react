@@ -8,7 +8,7 @@ import VideoSection from './videoSection/VideoSection';
 
 const Detail = () => {
     const { mediaType, id } = useParams();
-    const { data, loading } = useFetch(`/${mediaType}/${id}/videos`);
+    const { data, loading, error } = useFetch(`/${mediaType}/${id}/videos`);
     const { data: credits, loading: creditsLoading } = useFetch(
         `/${mediaType}/${id}/credits`
     );
